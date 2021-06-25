@@ -6,6 +6,9 @@ class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
+  fullName() {
+      return `${this.first_name} ${this.last_name}`;
+  }
 }
 
 User.init(
@@ -16,7 +19,15 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    bio: {
       type: DataTypes.STRING,
       allowNull: false,
     },

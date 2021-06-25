@@ -1,0 +1,20 @@
+
+<div class="flex justify-center">
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        <p class="mt-4 max-w-4xl text-xl text-gray-800 lg:mx-auto">
+            Published Tech Posts:
+        </p>
+    </div>
+</div>
+
+<div class="flex justify-center">
+    <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        {{#each posts as |post|}}
+            {{> postsCard}}
+        {{/each}}
+    </div>
+</div>
+    
+
+    
+

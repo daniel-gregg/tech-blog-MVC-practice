@@ -1,0 +1,56 @@
+
+
+<div>
+    <div class= "justify-center rounded overflow-hidden shadow-lg max-w-xl m-5 container mx-auto">
+        <div class="px-6 py-4 items-center">
+            <div class="font-bold text-xl mb-2">{{post.title}}</div>
+            <p class="text-gray-600">{{format_date post.date_created}}</p> 
+            <p class="text-gray-700 text-base">
+                {{post.content}}
+            </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{author.first_name}} {{author.last_name}}</span>
+        </div>
+    </div>
+</div>
+
+{{#if loggedIn}}
+<div class="flex justify-center h-24">
+    <div class="lg:text-center">
+        <form class="grid mt-8  gap-8 grid-cols-1" id="commentForm">
+            <div class="flex flex-col sm:flex-row items-center">
+                <h2 class="font-semibold text-lg mr-auto">Add a comment!</h2>
+                <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+            </div>
+            <input type="hidden" value="{{author.id}}" type="text" name="author_id" id="author_id">
+            <input type="hidden" value="{{post.id}}" type="text" name="post_id" id="post_id">
+            <div class="mt-5">
+                <div class="flex-auto w-full mb-1 text-s space-y-10">
+                    <textarea name="content" id="content" class="w-full min-h-[100px] max-h-[200px] h-24 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4" spellcheck="false"></textarea>
+                </div>
+                <div class="mt-5 text-center md:space-x-3 md:block flex flex-col-reverse">
+                    <button type="submit" class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Save</button>
+                </div>
+            </div>
+        </form>
+{{/if}}
+
+
+{{#if comments}}
+    <div>
+        <div class= "justify-center rounded overflow-hidden shadow-lg max-w-xl m-5 container mx-auto">
+            <div class="px-6 py-4 items-center">
+                <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-5">
+                    {{#each comments as |comment|}}
+                        {{> commentsCard}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
+    </div>
+</div>
+
+<script src="../js/comment.js"></script>

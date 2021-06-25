@@ -1,0 +1,17 @@
+[
+  {
+    "content": "A test comment for post 1!",
+    "user_id": 1,
+    "post_id": 1
+  },
+  {
+    "content": "A second test comment for post 1!",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "content": "A test comment for post 2!",
+    "user_id": 3,
+    "post_id": 2
+  }
+]

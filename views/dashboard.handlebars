@@ -1,0 +1,45 @@
+<div class="flex justify-center">
+  <div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                Hello {{user.first_name}} {{user.last_name}}
+            </p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center">
+    <a href="/bio/edit"><button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+        <span>Update your bio</span>
+    </button></a>
+</div>
+
+    <div class="flex justify-center items-end h-24">
+        <div class="lg:text-center">
+            <p class="mt-4 max-w-4xl text-xl text-gray-500 lg:mx-auto">
+                Your published posts are listed here: click on any to see your post and associated comments 
+            </p>
+        </div> 
+    </div>  
+    <div class="flex justify-center">
+        <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+            {{#each posts as |post|}}
+                {{> postsCard}}
+            {{/each}}
+        </div>
+    </div>
+    
+    
+    <div class="flex justify-center h-24">
+        <div class="lg:text-center">
+            <a href="/new">
+            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                <span>Add a new post</span>
+            </button>
+            </a>
+        </div>
+    </div>
+    
+

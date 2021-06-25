@@ -1,17 +1,23 @@
 [
   {
-    "name": "Sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
+    "first_name": "Lark",
+    "last_name": "Marx",
+    "bio": "Lark Marx is a leading writer, and stinker, on the topic of 'tech for the masses'. Lark's writing focused on how to apply tech concepts and tools to utilities that help the masses achieve equality with their masters'",
+    "email": "marx@email.com",
+    "password": "password"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
+    "first_name": "Vladimir",
+    "last_name": "Poppins",
+    "bio": "Vladimir Poppins is an umbrella-wielding despot of tech. Vladimir doesn't stink much (he's not much of a thinker) but appeals to golden gun manufacturers. He is somewhat scary to bears",
+    "email": "poppins@email.com",
+    "password": "password"
   },
   {
-    "name": "Amiko",
-    "email": "amiko2k20@aol.com",
-    "password": "password12345"
+    "first_name": "Snoop",
+    "last_name": "Blog",
+    "bio": "Snoop Blog is a tone-deaf, but weirdly famous, tech rapper. He is unlikely to win a nobel prize for literature, and there are claims that he may be a dogg-farter",
+    "email": "blog@email.com",
+    "password": "password"
   }
 ]

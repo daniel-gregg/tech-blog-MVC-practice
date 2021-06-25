@@ -4,7 +4,11 @@
   "description": "A practice tech blog showing full-stack skills",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "node ./seeds/seed.js",
+    "lint": "eslint --fix .",
+    "test": "eslint --quiet .",
+    "start": "node server.js",
+    "watch": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -13,10 +17,18 @@
   "author": "spaniel-boone",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
     "path": "^0.12.7",
-    "sequelize": "^6.6.2"
-  }
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {},
+  "keywords": []
 }

@@ -1,0 +1,62 @@
+<form class="grid mt-8  gap-8 grid-cols-1" id="bio-form">
+	<div class="flex flex-col ">
+		<div class="bg-white shadow-md rounded-3xl p-5">
+			<div class="flex flex-col sm:flex-row items-center">
+				<h2 class="font-semibold text-lg mr-auto">Update your information</h2>
+				<div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+			</div>
+			<div class="mt-5">
+					<div class="md:space-y-2 mb-3">     
+						<div class="flex items-center py-6">
+							<div class="w-44 h-44 mr-4 flex-none rounded-xl border overflow-hidden">
+								<img class="w-44 h-44 mr-4 object-cover" src={{ format_image_url imagepath}} alt="Avatar Upload">
+                            </div>
+								<label class="cursor-pointer ">
+                                    <span class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-green-400 hover:bg-green-500 hover:shadow-lg">Browse</span>
+                                    <input type="file" class="hidden" :multiple="multiple" :accept="accept">
+                                </label>
+						</div>
+					</div>
+                    <input value="{{user.id}}" type="hidden" name="userId" id="userId">
+                    <div class="md:flex flex-row md:space-x-4 w-full text-s">
+                        <div class="mb-3 space-y-2 w-full text-s">
+                            <label class="font-semibold text-gray-600 py-2">First Name</label>
+                            <input value="{{{user.first_name}}}" required="required" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="first_name" id="first_name">
+                            <p class="text-red text-xs hidden">Please fill out this field.</p>
+                        </div>
+                        <div class="mb-3 space-y-2 w-full text-s">
+                            <label class="font-semibold text-gray-600 py-2">Last Name</label>
+                            <input value={{user.last_name}} required="required" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="last_name" id="last_name">
+                            <p class="text-red text-xs hidden">Please fill out this field.</p>
+                        </div>
+                        <div class="mb-3 space-y-2 w-full text-s">
+                            <label class="font-semibold text-gray-600 py-2">Email Address</label>
+                            <input value={{user.email}} required="required" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="email" id="email">
+                            <p class="text-red text-xs hidden">Please fill out this field.</p>
+                        </div>
+                    </div>
+                <div class="md:flex md:flex-row md:space-x-4 w-3/12 text-s">
+                    <div class="w-full flex flex-col mb-3">
+                        <label class="font-semibold text-gray-600 py-2">Organisation<abbr title="required">*</abbr></label>
+                        <select placeholder="Select an organisation" required="required" class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " name="organisation" id="organisation">
+                            <option value="Spectre">Spectre</option>
+                            <option value="M.A.D.">M.A.D.</option>
+                            <option value="KAOS">KAOS</option>
+                        </select>
+                        <p class="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
+                    </div>
+                </div>
+                <div class="flex-auto w-full mb-1 text-s space-y-2">
+                    <label class="font-semibold text-gray-600 py-2">Bio</label>
+                    <textarea placeholder="Please fill in your bio field" required="required" name="bio" id="bio" class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4" spellcheck="false">{{user.text}}</textarea>
+                </div>
+                <div class="mt-5 text-center md:space-x-3 md:block flex flex-col-reverse">
+                    <a href="/dashboard"><button type="button" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Cancel</button></a>
+                    <button type="submit" class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="../js/bioupdate.js"></script>
