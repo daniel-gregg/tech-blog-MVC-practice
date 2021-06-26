@@ -1,62 +1,44 @@
-<form class="grid mt-8  gap-8 grid-cols-1" id="bio-form">
-	<div class="flex flex-col ">
-		<div class="bg-white shadow-md rounded-3xl p-5">
-			<div class="flex flex-col sm:flex-row items-center">
-				<h2 class="font-semibold text-lg mr-auto">Update your information</h2>
-				<div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
-			</div>
-			<div class="mt-5">
-					<div class="md:space-y-2 mb-3">     
-						<div class="flex items-center py-6">
-							<div class="w-44 h-44 mr-4 flex-none rounded-xl border overflow-hidden">
-								<img class="w-44 h-44 mr-4 object-cover" src={{ format_image_url imagepath}} alt="Avatar Upload">
-                            </div>
-								<label class="cursor-pointer ">
-                                    <span class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-green-400 hover:bg-green-500 hover:shadow-lg">Browse</span>
-                                    <input type="file" class="hidden" :multiple="multiple" :accept="accept">
-                                </label>
-						</div>
-					</div>
-                    <input value="{{user.id}}" type="hidden" name="userId" id="userId">
-                    <div class="md:flex flex-row md:space-x-4 w-full text-s">
-                        <div class="mb-3 space-y-2 w-full text-s">
-                            <label class="font-semibold text-gray-600 py-2">First Name</label>
-                            <input value="{{{user.first_name}}}" required="required" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="first_name" id="first_name">
-                            <p class="text-red text-xs hidden">Please fill out this field.</p>
-                        </div>
-                        <div class="mb-3 space-y-2 w-full text-s">
-                            <label class="font-semibold text-gray-600 py-2">Last Name</label>
-                            <input value={{user.last_name}} required="required" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="last_name" id="last_name">
-                            <p class="text-red text-xs hidden">Please fill out this field.</p>
-                        </div>
-                        <div class="mb-3 space-y-2 w-full text-s">
-                            <label class="font-semibold text-gray-600 py-2">Email Address</label>
-                            <input value={{user.email}} required="required" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4" type="text" name="email" id="email">
-                            <p class="text-red text-xs hidden">Please fill out this field.</p>
-                        </div>
-                    </div>
-                <div class="md:flex md:flex-row md:space-x-4 w-3/12 text-s">
-                    <div class="w-full flex flex-col mb-3">
-                        <label class="font-semibold text-gray-600 py-2">Organisation<abbr title="required">*</abbr></label>
-                        <select placeholder="Select an organisation" required="required" class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full " name="organisation" id="organisation">
-                            <option value="Spectre">Spectre</option>
-                            <option value="M.A.D.">M.A.D.</option>
-                            <option value="KAOS">KAOS</option>
-                        </select>
-                        <p class="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
-                    </div>
-                </div>
-                <div class="flex-auto w-full mb-1 text-s space-y-2">
-                    <label class="font-semibold text-gray-600 py-2">Bio</label>
-                    <textarea placeholder="Please fill in your bio field" required="required" name="bio" id="bio" class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4" spellcheck="false">{{user.text}}</textarea>
-                </div>
-                <div class="mt-5 text-center md:space-x-3 md:block flex flex-col-reverse">
-                    <a href="/dashboard"><button type="button" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Cancel</button></a>
-                    <button type="submit" class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+<div class="text-center mt-24">
+      <div class="flex items-center justify-center">
+         <svg fill="none" viewBox="0 0 24 24" class="w-12 h-12 text-blue-500" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+         </svg>
+      </div>
+      <h2 class="text-4xl tracking-tight">
+         Update your account details
+      </h2>
+</div>
+<div class="flex justify-center my-2 mx-4 md:mx-0">
+   <form id="bioForm" class=" login w-full max-w-xl bg-white rounded-lg shadow-md p-6" >
+      <div class="flex flex-wrap -mx-3 mb-6">
+         <div class="w-full md:w-full px-3 mb-6">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>First name</label>
+            <input id="first_name" name="first_name" value="{{user.first_name}}" class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='text'  required>
+         </div>
+         <div class="w-full md:w-full px-3 mb-6">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Last name</label>
+            <input id="last_name" name="last_name" value="{{user.last_name}}" class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='text'  required>
+         </div>
+         <div class="w-full md:w-full px-3 mb-6">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Bio</label>
+            <input id="bio" name="bio" value="{{user.bio}}" class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-24 px-3 leading-tight focus:outline-none" type='text'  required>
+         </div> 
+         <div class="w-full md:w-full px-3 mb-6">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Email address</label>
+            <input id="email" value="{{user.email}}" class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='email'  required>
+         </div>
+         <div class="w-full md:w-full px-3 mb-6">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Password</label>
+            <input id="password" class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none" type='password' required>
+         </div>
+         <div class="w-full md:w-full px-3 mb-6">
+             <a href="/dashboard"><button type="button" class="appearance-none block px-5 bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-grey-500 focus:outline-none focus:bg-white focus:border-gray-500">Cancel</button></a>
+            <button type="submit" class="appearance-none block px-5 bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Sign up</button>
+         </div>
+    
+      </div>
+   </form>
+</div>
 
-<script src="../js/bioupdate.js"></script>
+
+<script src="../js/updateBio.js"></script>

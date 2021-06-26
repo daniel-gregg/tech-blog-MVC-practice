@@ -52,11 +52,14 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
     try {
         const newUser = await User.create({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            bio: req.body.bio,
             email: req.body.email,
-            name: req.body.name,
             password: req.body.password,
         });
-
+        console.log(newUser)
+        console.log("check here")
         // excludes password.
         const { password, ...userDetails } = newUser.get({ plain: true });
 
@@ -67,6 +70,33 @@ router.post('/signup', async (req, res) => {
             res.json(userDetails);
         });
     } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
+
+router.put('/updateBio', async (req, res) => {
+    try {
+        const newUser = await User.update({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            bio: req.body.bio,
+            email: req.body.email,
+            password: req.body.password,
+        });
+        console.log(newUser)
+        console.log("check here")
+        // excludes password.
+        const { password, ...userDetails } = newUser.get({ plain: true });
+
+        req.session.save(() => {
+            req.session.user = userDetails;
+            req.session.loggedIn = true;
+
+            res.json(userDetails);
+        });
+    } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });

@@ -1,8 +1,8 @@
 // Getting references to our form and input
-const $signUpForm = document.querySelector('#signupForm');
+const $bioUpdateForm = document.querySelector('#bioForm');
 
 // When the signup button is clicked, we validate the email and password are not blank
-$signUpForm.addEventListener('submit', (event) => {
+$bioUpdateForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const first_name = document.querySelector('#first_name').value;
@@ -15,15 +15,15 @@ $signUpForm.addEventListener('submit', (event) => {
         return;
     } */
     // If we have an email and password, run the signUpUser function
-    signUpUser({ first_name, last_name, bio , email, password });
+    updateUser({ first_name, last_name, bio , email, password });
     event.target.reset();
 });
 
 // Does a post to the signup route. If successful, we are redirected to the members page
 // Otherwise we log any errors
-function signUpUser({ first_name, last_name, bio , email, password }) {
-    fetch('/api/users/signup', {
-        method: 'POST',
+function updateUser({ first_name, last_name, bio , email, password }) {
+    fetch('/api/users/updateBio', {
+        method: 'PUT',
         body: JSON.stringify({
             first_name,
             last_name,

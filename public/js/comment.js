@@ -6,8 +6,8 @@ const commentHandler = async (event) => {
     const authorId = document.querySelector('#author_id').value;
 
     try {
-        const response = fetch(`/post/${postId}`, {
-            method: 'PUT',
+        const response = fetch(`/comment`, {
+            method: 'POST',
             body: JSON.stringify({ content, postId, authorId }),
             headers: { 'Content-Type': 'application/json' },
         });

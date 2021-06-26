@@ -29,7 +29,7 @@ User.init(
     },
     bio: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -42,9 +42,9 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
+      /* validate: {
         len: [8],
-      },
+      }, */
     },
   },
   {

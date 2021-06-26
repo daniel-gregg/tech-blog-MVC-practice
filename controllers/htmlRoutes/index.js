@@ -114,7 +114,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
 });
 
 //This needs to be shifted into api routes
-router.put('/post/:id', withAuth, async (req, res) => {
+router.post('/comment', withAuth, async (req, res) => {
     try {
         
         const result = await Comment.create(
@@ -130,7 +130,50 @@ router.put('/post/:id', withAuth, async (req, res) => {
     }
 });
 
+//This needs to be shifted into api routes
+router.get('/new', withAuth, async (req, res) => {
+    try {
+        res.render('newPost', {
+            user: req.session.user,
+            loggedIn: req.session.loggedIn,
+        })
 
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+//This needs to be shifted into api routes
+router.post('/post/new', withAuth, async (req, res) => {
+    try {
+        
+        const authorId = req.session.user.id;
+
+        const result = await Post.create(
+            {
+                title: req.body.title,
+                content: req.body.content,
+                author_id: authorId,
+            },
+        );
+
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+//This needs to be shifted into api routes
+router.get('/bio/edit', withAuth, async (req, res) => {
+    try {
+        res.render('bioupdate', {
+            user: req.session.user,
+            loggedIn: req.session.loggedIn,
+        })
+
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 // Here we've add our isAuthenticated middleware to this route.
 // User can update their owned project briefs
